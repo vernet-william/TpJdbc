@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class ExempleEntite {    
+public class ExempleAsso1 {    
     // La requete de test
     private static final String reqEtudiantsAixois =
             "SELECT NUM_ET, NOM_ET, PRENOM_ET, CP_ET, VILLE_ET, ANNEE, GROUPE  " +
@@ -26,21 +26,22 @@ public class ExempleEntite {
             // Execution de la requete
             System.out.println("Execution de la requete : " + reqEtudiantsAixois);
             ResultSet resultSet = statement.executeQuery(reqEtudiantsAixois);
-            ArrayList<Etudiant> listEtu = new ArrayList<>();
+            ArrayList<Prof> listProf = new ArrayList<>();
             // Affichage du resultat
             while (resultSet.next()) {
-                Etudiant etudiant = new Etudiant();
+                Prof prof = new Prof();
 
-                etudiant.setNumEt(resultSet.getInt("NUM_ET"));
-                etudiant.setNomEt(resultSet.getString("NOM_ET"));
-                etudiant.setPrenomEt(resultSet.getString("PRENOM_ET"));
-                etudiant.setCpEt(resultSet.getString("CP_ET"));
-                etudiant.setVilleEt(resultSet.getString("VILLE_ET"));
-                etudiant.setAnnee(resultSet.getInt("ANNEE"));
-                etudiant.setGroupe(resultSet.getInt("GROUPE"));
+                prof.setNumProf(resultSet.getInt("NUM_PROF"));
+                prof.setNomProf(resultSet.getString("NOM_PROF"));
+                prof.setPrenomProf(resultSet.getString("PRENOM_PROF"));
+                prof.setAdrProf(resultSet.getString("ADR_PROF"));
+                prof.setCpProf(resultSet.getString("CP_PROF"));
+                prof.setVilleProf(resultSet.getString("VILLE_PROF"));
+                Module module = new Module();
+                prof.setMatSpec(module);//PAS SUR DU TOUT
 
-                System.out.println(etudiant);
-                listEtu.add(etudiant);
+                System.out.println(prof);
+                listProf.add(prof);
             }
 
             // Fermeture de l'instruction (liberation des ressources)
