@@ -38,10 +38,10 @@ public class ExempleEntite {
                 etudiant.setVilleEt(resultSet.getString("VILLE_ET"));
                 etudiant.setAnnee(resultSet.getInt("ANNEE"));
                 etudiant.setGroupe(resultSet.getInt("GROUPE"));
-
-                System.out.println(etudiant);
+                
                 listEtu.add(etudiant);
             }
+            System.out.println(listEtu);
 
             // Fermeture de l'instruction (liberation des ressources)
             statement.close();

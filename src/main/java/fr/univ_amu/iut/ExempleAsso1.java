@@ -40,9 +40,10 @@ public class ExempleAsso1 {
                 Module module = new Module();
                 prof.setMatSpec(module);//PAS SUR DU TOUT
 
-                System.out.println(prof);
-                listProf.add(prof);
+                module.setCod(resultSet.getString("MAT_SPEC");
+                profs.add(prof);
             }
+            System.out.println(listProf);
 
             // Fermeture de l'instruction (liberation des ressources)
             statement.close();
