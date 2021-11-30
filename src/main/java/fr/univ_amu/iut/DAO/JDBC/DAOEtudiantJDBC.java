@@ -12,27 +12,27 @@ import java.util.stream.Collectors;
 public final class DAOEtudiantJDBC implements DAOEtudiant {
     private Connection connection;
 
-    DAOEtudiantJDBC() {
+    public DAOEtudiantJDBC() {
     }
 
     @Override
     public int computeNbEtudiant() {
-        return 0;
+        return (int) ResultSetStreamer.stream(connection, "SELECT * FROM ETUDIANT", new EtudiantMapper()).count();
     }
 
     @Override
     public List<Etudiant> findByAnnee(int annee) {
-        return null;
+        return ResultSetStreamer.stream(connection, "SELECT * FROM ETUDIANT WHERE ANNEE = " + String.valueOf(annee), new EtudiantMapper()).collect(Collectors.toList());
     }
 
     @Override
     public List<Etudiant> findByGroupe(int groupe) {
-        return null;
+        return ResultSetStreamer.stream(connection, "SELECT * FROM ETUDIANT WHERE GROUPE = " + String.valueOf(groupe), new EtudiantMapper()).collect(Collectors.toList());
     }
 
     @Override
     public List<Etudiant> findByNom(String nomEt) {
-        return null;
+        return ResultSetStreamer.stream(connection, "SELECT * FROM ETUDIANT WHERE NOM_ET = " + String.valueOf(nomEt), new EtudiantMapper()).collect(Collectors.toList());
     }
 
     @Override
