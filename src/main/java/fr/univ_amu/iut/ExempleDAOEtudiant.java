@@ -14,10 +14,10 @@ public class ExempleDAOEtudiant {
     public static void main(String[] args){
     DAOEtudiant dao = new DAOEtudiantJDBC();
     Etudiant e = new Etudiant();//e est un Etudiant temporaire
-    e.setNomEt("Dupont");
-    e.setPrenomEt("Paul");
-    e.setCpEt("13100");
-    e.setVilleEt("Aix-en-Provence");
+    e.setNomEt("Vernet");
+    e.setPrenomEt("William");
+    e.setCpEt("13170");
+    e.setVilleEt("Pennes-Mirabeau");
     e.setAnnee(1);//Modification des attributs de e 
     e.setGroupe(5);
     e = dao.insert(e);//e referencie maintenant un Etudiant definitif
